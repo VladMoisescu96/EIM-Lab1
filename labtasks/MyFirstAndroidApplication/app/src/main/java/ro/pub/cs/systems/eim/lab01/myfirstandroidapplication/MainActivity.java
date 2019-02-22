@@ -1,8 +1,9 @@
 package ro.pub.cs.systems.eim.lab01.myfirstandroidapplication;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,9 +22,15 @@ public class MainActivity extends AppCompatActivity {
             TextView greetingTextView = (TextView)findViewById(R.id.greeting_text_view);
             greetingTextView.setAlpha(1);
 
-            // TODO: exercise 9a
+            // TODO: exercise 9a]
+
+            greetingTextView.setText(greetingTextView.getText().toString().replace("xxx", "\n"+userNameEditText.getText()));
 
             // TODO: exercise 9b
+            AlphaAnimation fadeEffect = new AlphaAnimation(0.0f, 1.0f);
+            fadeEffect.setDuration(TRANSPARENCY_EFFECT_DURATION);
+            fadeEffect.setFillAfter(true);
+            greetingTextView.setAnimation(fadeEffect);
         }
 
     }
